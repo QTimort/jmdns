@@ -1613,7 +1613,7 @@ public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarte
     public DNSOutgoing addAnswer(DNSIncoming in, InetAddress addr, int port, DNSOutgoing out, DNSRecord rec) throws IOException {
         DNSOutgoing newOut = out;
         if (newOut == null) {
-            newOut = new DNSOutgoing(DNSConstants.FLAGS_QR_RESPONSE | DNSConstants.FLAGS_AA, false, in.getSenderUDPPayload());
+            newOut = new DNSOutgoing(DNSConstants.FLAGS_QR_RESPONSE | DNSConstants.FLAGS_AA, false, DNSConstants.MAX_MSG_ABSOLUTE);
         }
         try {
             newOut.addAnswer(in, rec);
@@ -1622,7 +1622,7 @@ public class JmDNSImpl extends JmDNS implements DNSStatefulObject, DNSTaskStarte
             newOut.setId(in.getId());
             send(newOut);
 
-            newOut = new DNSOutgoing(DNSConstants.FLAGS_QR_RESPONSE | DNSConstants.FLAGS_AA, false, in.getSenderUDPPayload());
+            newOut = new DNSOutgoing(DNSConstants.FLAGS_QR_RESPONSE | DNSConstants.FLAGS_AA, false, DNSConstants.MAX_MSG_ABSOLUTE);
             newOut.addAnswer(in, rec);
         }
         return newOut;

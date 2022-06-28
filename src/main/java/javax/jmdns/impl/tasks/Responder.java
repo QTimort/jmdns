@@ -135,7 +135,7 @@ public class Responder extends DNSTask {
                 if (!answers.isEmpty()) {
                     logger.debug("{}.run() JmDNS responding", this.getName());
 
-                    DNSOutgoing out = new DNSOutgoing(DNSConstants.FLAGS_QR_RESPONSE | DNSConstants.FLAGS_AA, !_unicast, _in.getSenderUDPPayload());
+                    DNSOutgoing out = new DNSOutgoing(DNSConstants.FLAGS_QR_RESPONSE | DNSConstants.FLAGS_AA, !_unicast, DNSConstants.MAX_MSG_ABSOLUTE);
                     if (_unicast) {
                         out.setDestination(new InetSocketAddress(_addr, _port));
                     }

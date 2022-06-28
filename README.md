@@ -103,3 +103,6 @@ public class ExampleServiceDiscovery {
     }
 }
 ```
+
+## Release
+mvn install:install-file -DgroupId="io.dtim" -DartifactId="jmdns" -Dversion="3.5.9-SNAPSHOT" -Dfile="target/jmdns-3.5.9-SNAPSHOT.jar" -Dpackaging="jar" -DlocalRepositoryPath="." -DcreateChecksum="true" -DgeneratePom="true"
