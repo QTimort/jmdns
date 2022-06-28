@@ -102,7 +102,7 @@ public class Prober extends DNSStateTask {
      */
     @Override
     protected DNSOutgoing createOugoing() {
-        return new DNSOutgoing(DNSConstants.FLAGS_QR_QUERY);
+        return new DNSOutgoing(DNSConstants.FLAGS_QR_QUERY, true, DNSConstants.MAX_MSG_ABSOLUTE);
     }
 
     /*

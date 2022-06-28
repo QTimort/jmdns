@@ -47,7 +47,7 @@ public class DNSMessageTest {
     @Test
     public void testCreateQuery() throws IOException {
         String serviceName = "_00000000-0b44-f234-48c8-071c565644b3._sub._home-sharing._tcp.local.";
-        DNSOutgoing out = new DNSOutgoing(DNSConstants.FLAGS_QR_QUERY);
+        DNSOutgoing out = new DNSOutgoing(DNSConstants.FLAGS_QR_QUERY, true, DNSConstants.MAX_MSG_ABSOLUTE);
         assertNotNull("Could not create the outgoing message", out);
         out.addQuestion(DNSQuestion.newQuestion(serviceName, DNSRecordType.TYPE_ANY, DNSRecordClass.CLASS_IN, true));
         byte[] data = out.data();

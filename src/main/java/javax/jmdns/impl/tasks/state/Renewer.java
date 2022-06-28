@@ -87,7 +87,7 @@ public class Renewer extends DNSStateTask {
      */
     @Override
     protected DNSOutgoing createOugoing() {
-        return new DNSOutgoing(DNSConstants.FLAGS_QR_RESPONSE | DNSConstants.FLAGS_AA);
+        return new DNSOutgoing(DNSConstants.FLAGS_QR_RESPONSE | DNSConstants.FLAGS_AA, true, DNSConstants.MAX_MSG_ABSOLUTE);
     }
 
     /*
